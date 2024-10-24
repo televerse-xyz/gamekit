@@ -1,0 +1,20 @@
+{
+  "compilationOptions": {
+    "preferredConfigPath": "../tsconfig.json"
+  },
+  "entries": [
+    {
+      "noCheck":   true,
+      "filePath": "../src/index.ts",
+      "outFile": "../dist/gamekit.d.ts",
+      "libraries": {
+        "inlinedLibraries": [
+          "events",
+          "node:async_hooks"
+        ],
+        "allowedTypesLibraries": [
+        ]
+      }
+    }
+  ]
+}

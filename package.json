@@ -1,0 +1,76 @@
+{
+  "name": "@tty.io/gamekit",
+  "version": "1.0.22",
+  "description": "teletypes gamekit framework,for game connect to the platform.",
+  "main": "dist/gamekit.cjs",
+  "types": "types/gamekit.d.ts",
+  "author": "puterjam <puterjam@gmail.com>",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./dist/gamekit.d.ts",
+      "import": "./dist/gamekit.mjs",
+      "default": "./dist/gamekit.mjs",
+      "require": "./dist/gamekit.cjs"
+    },
+    "./ton-utils": {
+      "types": "./dist/ton-utils.d.ts",
+      "import": "./dist/ton-utils.mjs",
+      "default": "./dist/ton-utils.mjs",
+      "require": "./dist/ton-utils.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "docs"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.24.7",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.18.6",
+    "@babel/plugin-proposal-optional-chaining": "^7.21.0",
+    "@babel/plugin-transform-async-to-generator": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
+    "@eslint/js": "^9.7.0",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-json": "^6.0.0",
+    "@rollup/plugin-node-resolve": "^13.1.3",
+    "@rollup/plugin-sucrase": "^5.0.2",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@telegram-apps/sdk": "^1.1.3",
+    "@ton/core": "^0.56.3",
+    "@ton/crypto": "^3.2.0",
+    "@tonconnect/ui": "^2.0.5",
+    "@types/mocha": "^10.0.7",
+    "csstype": "^3.1.3",
+    "dts-bundle-generator": "8.0.1",
+    "eslint": "9.x",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
+    "eslint-plugin-promise": "^6.0.0",
+    "globals": "^15.8.0",
+    "mocha": "^10.7.0",
+    "rollup": "^2.67.1",
+    "rollup-plugin-polyfill-node": "^0.12.0",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "typedoc": "^0.25.13",
+    "typescript": "^5.2.2",
+    "typescript-eslint": "^7.17.0",
+    "wallet-pay": "^1.1.4"
+  },
+  "scripts": {
+    "build": "yarn run lint && yarn run build:gamekit && yarn run build:ton-utils && yarn run test &&  yarn run docs",
+    "build:gamekit": "yarn run rollup:gamekit && yarn run type:gamekit",
+    "rollup:gamekit": "rollup -c config/rollup.gamekit.config.js",
+    "type:gamekit": "dts-bundle-generator --config config/dtsconfig.gamekit.json",
+    "build:ton-utils": "yarn run rollup:ton-utils && yarn run type:ton-utils",
+    "rollup:ton-utils": "rollup -c config/rollup.ton-utils.config.js",
+    "type:ton-utils": "dts-bundle-generator --config config/dtsconfig.ton-utils.json",
+    "docs": "npx typedoc",
+    "test": "npx mocha \"test/**/*.test.mjs\"",
+    "lint": "npx eslint --config eslint.config.mjs --fix"
+  },
+  "dependencies": {},
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+}

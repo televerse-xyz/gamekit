@@ -1,0 +1,11 @@
+{
+  "entryPoints": [
+    "src/index.ts",
+    "src/utils/ton-utils.ts"
+  ],
+  "out": "docs",
+  "includeVersion": true,
+  "excludeExternals": true,
+  "excludePrivate": true,
+  "excludeProtected": true
+}

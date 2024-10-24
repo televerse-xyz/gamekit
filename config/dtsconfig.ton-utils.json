@@ -1,0 +1,20 @@
+{
+  "compilationOptions": {
+    "preferredConfigPath": "../tsconfig.json"
+  },
+  "entries": [
+    {
+      "noCheck": true,
+      "filePath": "../src/utils/ton-utils.ts",
+      "outFile": "../dist/ton-utils.d.ts",
+      "libraries": {
+        "inlinedLibraries": [
+          "events",
+          "node:async_hooks"
+        ],
+        "allowedTypesLibraries": [
+        ]
+      }
+    }
+  ]
+}
